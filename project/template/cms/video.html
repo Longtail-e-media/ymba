@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <jcms:site:seotitle/>
+    <jcms:site:fevicon/>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css'>
+    <link rel="stylesheet" type="text/css"
+          href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css'>
+    <link href='https://unpkg.com/aos@2.3.1/dist/aos.css' rel="stylesheet">
+    <link rel="stylesheet" href="css/venobox/venobox.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+
+<body>
+<!--NAVBAR-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top">
+    <div class="container">
+        <jcms:site:logo/>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarResponsive">
+            <div class="navbar-nav">
+                <jcms:module:menu/>
+            </div>
+        </div>
+    </div>
+</nav>
+<!--NAVBAR END-->
+
+<!--banner -->
+<div class="banner">
+    <div>
+        <img src="images/default-media-event-detail-banner.jpg">
+        <h2>Music Videos</h2>
+    </div>
+</div>
+<!--Banner end-->
+
+<!-- vedio section -->
+<div class="videos">
+    <div class="container">
+        <div class="inner-page-main-title mar-bottom-30 text-center">
+                <!--<p>The eminent artist Saziv Shakya has perfected the style of blending the traditional paubha with the elements of metal-carving.-->
+                <!--He plans to introduce the very original 8D paintings, the work of art that is intended to cater to other human senses besides the visuals.</p>-->
+            </div>
+        <div class="row">
+            <jcms:module:video-gallery/>
+        </div>
+    </div>
+</div>
+<!-- vedio section end -->
+
+<!--footer-->
+<jcms:module:footer/>
+<!--footer end-->
+
+<!--SCROLL TO TOP-->
+<div>
+    <a class="gotobtn" href="#"><i class="fas fa-chevron-circle-up"></i></a>
+</div>
+<!--SCROLL TO TOP END-->
+
+<!-- Optional JavaScript -->
+<script type="text/javascript" src='http://code.jquery.com/jquery-latest.min.js'></script>
+<!--<script src='https://code.jquery.com/jquery-3.4.1.slim.min.js'-->
+        <!--integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"-->
+        <!--crossorigin="anonymous"></script>-->
+<script src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js'
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+<script src='https://unpkg.com/aos@2.3.1/dist/aos.js'></script>
+<script type="text/javascript" src="css/venobox/venobox.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 100) {
+                $('nav').addClass('shrink');
+                $('.gotobtn').fadeIn();
+            }
+            else {
+                $('nav').removeClass('shrink');
+                $('.gotobtn').fadeOut();
+            }
+        });
+
+        $("ul li a").click(function () {
+            $("a").removeClass("av");
+            $(this).addClass("av");
+        });
+
+        $('.venobox').venobox();
+    });
+
+    AOS.init();
+    <!--Shrink-->
+</script>
+
+</body>
+</html>

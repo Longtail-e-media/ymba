@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <jcms:site:seotitle/>
+    <jcms:site:fevicon/>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css'>
+    <link rel="stylesheet" type="text/css"
+          href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css'>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/lightbox.min.css" type="text/css">
+    <link rel="stylesheet" href="css/b4vtabs.min.css"/>
+</head>
+
+<body>
+<!--NAVBAR-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top">
+    <div class="container">
+        <jcms:site:logo/>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarResponsive">
+            <div class="navbar-nav">
+                <jcms:module:menu/>
+            </div>
+        </div>
+    </div>
+</nav>
+<!--NAVBAR END-->
+
+<!--banner -->
+<div class="profile-banner">
+    <div class="banner">
+        <div>
+            <img src="images/default-media-event-detail-banner.jpg" alt="About"><h2 id="article-title">YMBA Presidents from beginning</h2>
+        </div>
+    </div>
+</div>
+<!--Banner end-->
+
+<!-- detail profile -->
+<div class="profile-detail">
+    <div class="container">
+        <div class="row">
+            <jcms:module:member-list/>
+        </div>
+    </div>
+</div>
+<!-- detail profile end-->
+
+
+<!--footer-->
+<jcms:module:footer/>
+<!--footer end-->
+
+<!--SCROLL TO TOP-->
+<div>
+    <a class="gotobtn" href="#"><i class="fas fa-chevron-circle-up"></i></a>
+</div>
+<!--SCROLL TO TOP END-->
+
+<!-- Optional JavaScript -->
+<script src="js/lightbox-plus-jquery.min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js'
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+<script src="css/isotope.min.js"></script>
+<script src='https://unpkg.com/aos@2.3.1/dist/aos.js'></script>
+<script type="text/javascript" src="js/index.js"></script>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 100) {
+                $('nav').addClass('shrink');
+                $('.gotobtn').fadeIn();
+            }
+            else {
+                $('nav').removeClass('shrink');
+                $('.gotobtn').fadeOut();
+            }
+        });
+
+        // $( ".nav-link" ).on( "click", function() {
+        //     $("#article-title").text($( this ).text())
+        // });
+    });
+
+    lightbox.option({
+        'resizeDuration': 200,
+        'disableScrolling': true,
+        'wrapAround': true
+    })
+
+    AOS.init();
+</script>
+
+</body>
+</html>

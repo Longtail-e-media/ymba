@@ -1,0 +1,16 @@
+.navbar{
+    img{
+      position:absolute;
+    }
+    // #menu a {
+    // padding: 23px 15px;
+    // }
+  }
+  .navbar.scrollheight img {
+    width:223px;
+    clip-path: polygon(0 0, 42% 0, 42% 66%, 0 67%);
+  }
+  .home_page_article img{
+height: 430px;
+object-fit: cover;
+  }

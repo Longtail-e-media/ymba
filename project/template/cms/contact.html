@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <jcms:site:seotitle/>
+    <jcms:site:fevicon/>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css'>
+    <link rel="stylesheet" type="text/css"
+          href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css'>
+    <link href='https://unpkg.com/aos@2.3.1/dist/aos.css' rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/lightbox.min.css" type="text/css">
+    <style>
+        span.validate-has-error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+<!--NAVBAR-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top">
+    <div class="container">
+        <jcms:site:logo/>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarResponsive">
+            <div class="navbar-nav">
+                <jcms:module:menu/>
+            </div>
+        </div>
+    </div>
+</nav>
+<!--NAVBAR END-->
+
+<!--banner -->
+<div class="banner">
+    <div>
+        <img src="images/default-media-event-detail-banner.jpg">
+        <h2>Contact </h2>
+    </div>
+</div>
+<!--Banner end-->
+
+
+<!--new contact design-->
+ <section class="contact-main">
+    <div class="container">
+        <div class="contact-info mar-bottom-30">
+            <div class="row">
+                 <jcms:module:contact-location/>
+            </div>
+        </div>
+
+        <div class="contact-map">
+            <div class="row">
+                <div class="col-md-6">
+                     <jcms:module:location-map/>
+                </div>
+                <div class="col-md-6">
+                    <jcms:module:contact-form/>
+                </div>
+            </div>
+        </div>
+    </div>
+ </section>
+<!--new contact design end-->
+<!--footer-->
+<jcms:module:footer/>
+<!--footer end-->
+
+<!--SCROLL TO TOP-->
+<div>
+    <a class="gotobtn" href="#"><i class="fas fa-chevron-circle-up"></i></a>
+</div>
+<!--SCROLL TO TOP END-->
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="js/lightbox-plus-jquery.min.js"></script>
+<!--<script src='https://code.jquery.com/jquery-3.4.1.slim.min.js'-->
+        <!--integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"-->
+        <!--crossorigin="anonymous"></script>-->
+<script src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js'
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+<script src='https://unpkg.com/aos@2.3.1/dist/aos.js'></script>
+<script src="js/jquery.validate.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 100) {
+                $('nav').addClass('shrink');
+                $('.gotobtn').fadeIn();
+            }
+            else {
+                $('nav').removeClass('shrink');
+                $('.gotobtn').fadeOut();
+            }
+        });
+
+        var base_url = $('base').attr('url');
+        $("#contact").validate({
+            errorElement: 'span',
+            errorClass: 'validate-has-error',
+            rules: {
+                name: {
+                    required: !0,
+                    minlength: 2
+                },
+                phone: {
+                    required: !0,
+                    number: !0
+                },
+                email: {
+                    required: !0,
+                    email: !0
+                },
+                message: {
+                    required: !0
+                }
+            },
+            messages: {
+                name: {
+                    required: "Please enter your name",
+                    minlength: "Please enter your name correctly"
+                },
+                phone: {
+                    required: "Please enter your phone number",
+                    minlength: "Please enter only number"
+                },
+                email: {
+                    required: "Please enter your e-mail address",
+                    email: "Please enter your e-mail correctly",
+                },
+                message: {
+                    required: "Please enter your message",
+                    minlength: "Too short message"
+                }
+            },
+            submitHandler: function (form) {
+                var Frmval = $(form).serialize();
+                $("button#submit").attr("disabled", "true").text('Processing...');
+                $.ajax({
+                    type: "POST",
+                    dataType: "JSON",
+                    url: base_url + "enquery_mail.php",
+                    data: "action=forcoment&" + Frmval,
+                    success: function (data) {
+                        var msg = eval(data);
+                        $("button#submit").removeAttr("disabled").text('Submit');
+                        $('div#msg').html(msg.message).css('display', 'block').fadeOut(10000);
+                        $("#contact")[0].reset();
+                    }
+                });
+                return false;
+            }
+        })
+    });
+
+    AOS.init();
+</script>
+
+</body>
+</html>
+

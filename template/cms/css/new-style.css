@@ -1,0 +1,15 @@
+.navbar img {
+  position: absolute;
+}
+
+.navbar.scrollheight img {
+  width: 223px;
+  -webkit-clip-path: polygon(0 0, 42% 0, 42% 66%, 0 67%);
+          clip-path: polygon(0 0, 42% 0, 42% 66%, 0 67%);
+}
+
+.home_page_article img {
+  height: 430px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}/*# sourceMappingURL=new-style.css.map */

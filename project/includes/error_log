@@ -1,0 +1,4 @@
+[06-Apr-2023 03:20:08 America/Chicago] PHP Warning:  Use of undefined constant LIB_PATH - assumed 'LIB_PATH' (this will throw an Error in a future version of PHP) in /home1/ycafeslx/musicvideodirectors.org.np/project/includes/database.php on line 2
+[06-Apr-2023 03:20:08 America/Chicago] PHP Warning:  Use of undefined constant DS - assumed 'DS' (this will throw an Error in a future version of PHP) in /home1/ycafeslx/musicvideodirectors.org.np/project/includes/database.php on line 2
+[06-Apr-2023 03:20:08 America/Chicago] PHP Warning:  require_once(LIB_PATHDSconfig.php): failed to open stream: No such file or directory in /home1/ycafeslx/musicvideodirectors.org.np/project/includes/database.php on line 2
+[06-Apr-2023 03:20:08 America/Chicago] PHP Fatal error:  require_once(): Failed opening required 'LIB_PATHDSconfig.php' (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home1/ycafeslx/musicvideodirectors.org.np/project/includes/database.php on line 2
